@@ -1,5 +1,8 @@
+import { useState } from "react";
+
+
 export default function Main(){
-    const [nome, setNome] = useState(true);
+    const [nome, setNome] = useState("");
 
     return(
        <main>
