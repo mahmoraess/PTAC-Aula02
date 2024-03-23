@@ -31,6 +31,7 @@ export default function Main(){
          />
          {nome}
 
+         <label htmlFor="telefone">telefone:</label>
          <input
          type="number"
          name="" id=""
@@ -38,6 +39,7 @@ export default function Main(){
          />
          {telefone}
 
+         <label htmlFor="cpf">cpf:</label>
          <input
          type="number"
          name="" id=""
