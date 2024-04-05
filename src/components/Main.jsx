@@ -30,25 +30,36 @@ export default function Main(){
          onChange={(event)=> setNome(event.target.value)}
          />
          {nome}
+         <br/>
 
          <label htmlFor="telefone">telefone:</label>
          <input
-         type="number"
+         type="text"
          name="" id=""
          onChange={(event)=> setTelefone(event.target.value)}
          />
          {telefone}
+         <br/>
 
          <label htmlFor="cpf">cpf:</label>
          <input
-         type="number"
+         type="text"
          name="" id=""
          onChange={(event)=> setCpf(event.target.value)}
          />
          {cpf}
+         <br/>
 
          <button>Salvar</button>
          </form>
+         {listaContatos.map((contato, index)=> 
+         <div key={index}>
+             <p>{contato.nomeSalvo}</p>
+             <p>{contato.telefoneSalvo}</p>
+             <p>{contato.cpfSalvo}</p>
+         </div>
+      )}
+      <button>Delete</button>
        </main>
     );
 }
