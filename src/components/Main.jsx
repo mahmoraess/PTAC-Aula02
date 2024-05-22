@@ -9,15 +9,19 @@ export default function Main(){
 
     const registrar = (event) =>{
      event.preventDefault(); 
-     alert("salvo");
      setListaContatos([...listaContatos,
       {
         nomeSalvo: nome,
         telefoneSalvo: telefone,
         cpfSalvo: cpf,
-      }
-    ]);
+      }]);
     };
+
+    const remover = (index) => { // Cria a funcao remover e coloca nela um parametro, que poderia ser qualquer coisa, esssa funcao recebera um numero (um indice)
+      let novaLista = listaTelefone.filter((el, indice) => (index != indice)) // Cria uma nova lista usando o filter removendo o elemento do indice passado no parametro, usamos dois parametros no filter, pq o primeiro e o elemento e o segundo o indice
+      setListaContatos(novaLista) // Setamos a nova lista, caso nao fizessemos isso, apenas iria remover o elemento mas nao apresentar ele removido
+    }
+
     console.table(listaContatos)
 
     return(
@@ -53,13 +57,15 @@ export default function Main(){
          <button>Salvar</button>
          </form>
          {listaContatos.map((contato, index)=> 
-         <div key={index}>
+         <div key={index} className="listaContatos">
              <p>{contato.nomeSalvo}</p>
              <p>{contato.telefoneSalvo}</p>
              <p>{contato.cpfSalvo}</p>
-         </div>
-      )}
-      <button>Delete</button>
-       </main>
-    );
+             <button onClick={function () {
+          remover(index) // Crio um botao com uma funcao fantasma, que chama minha funcao com o parametro indice, esse botao e o que aparece como remover, precisa da funcao fantasma para passar um parametro
+        }
+      }>Remover</button>
+      </div>)}
+    </main>
+  )
 }
